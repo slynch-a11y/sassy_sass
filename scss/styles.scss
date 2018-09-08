@@ -1,6 +1,6 @@
-$deepBlue: #032f3e;
-$offWhite: #f8f9fb;
-$sectionHeading: 32px;
+@import "reset";
+@import "variables";
+@import "mixins";
 
 #main-nav {
   background-color: $deepBlue;
@@ -17,7 +17,11 @@ $sectionHeading: 32px;
     padding: 16px;
     display: block;
     text-align: center;
+    &:hover{
+      background: lighten($deepBlue, 6)
+    }
   }
+
 }//end main-nav
 
 //clear fix rule if using float (don't!)
@@ -30,4 +34,53 @@ $sectionHeading: 32px;
 section h1 {
   font-size: $sectionHeading;
   color: $deepBlue;
+}
+
+.lead-banner{
+  @include banner;
+  text-align: right;
+}
+
+.lessons-banner{
+  @include banner;
+  li{
+    text-transform: uppercase;
+    font-size: 20px;
+    max-width: 500px;
+    //60px top to bottom, 0 left to right
+    margin: 60px 0;
+    display: block;
+  }
+}
+
+#services{
+  margin-bottom: 300px;
+  li{
+    float: left;
+    box-sizing: border-box;
+    text-align: center;
+    display: block;
+    width: (100% / 3);
+  }
+  img{
+    width: 60%;
+    margin: 20px 20%;
+  }
+  a{
+    text-decoration: none;
+    color: $deepBlue;
+    font-weight: bold;
+    &:hover{
+      color: complement($deepBlue);
+    }
+  }
+
+}
+
+#projects li{
+  @include grid(4, 2%);
+  display: block;
+  img{
+    width: 100%;
+  }
 }
